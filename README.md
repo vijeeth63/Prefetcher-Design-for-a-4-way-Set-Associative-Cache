@@ -65,7 +65,7 @@ Modern processors are bottlenecked by the gap between CPU speed and memory laten
 | Module | File | Description |
 |--------|------|-------------|
 | RAM | `ram.v` | 128-block synchronous RAM, serves as main memory |
-| Cache | `cache_4way.v` | 4-way set-associative cache with LRU replacement; 3-state FSM (IDLE → PROCESS → WRITEBACK) |
+| Cache | `cache_4way.v` | 4-way set-associative cache with LRU replacement; 4-state FSM (S0: IDLE → S1: TAG CHECK → S2: MEM FETCH → S3: WRITEBACK) |
 | Stride Prefetcher | `stride_prefetcher.v` | 4-entry RPT; detects constant strides and issues prefetch requests |
 | Arbiter | `arbiter.v` | Priority MUX — CPU requests always take precedence over prefetcher requests |
 | Top | `top.v` | Integration module; `prefetch_enable` input gates the prefetcher on/off |
